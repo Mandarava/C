@@ -1,0 +1,93 @@
+#include<stdio.h>
+#include<ctype.h>
+#include<string.h>
+void main()
+{
+	double c[20][20]={0},x=0,y=0,zhu=0,fu=0;
+	int line=0,col=0,len_a,i,j,t;
+	char a[500];
+	gets(a);
+	len_a=strlen(a);
+	for(i=0;i<len_a;i++)
+	{
+		if(a[i]>='0'&&a[i]<='9')
+			x=x*10+(a[i]-'0');
+		if(a[i]=='.')
+			y=1;
+		y=y*10;
+		if((a[i]==' '||a[i]=='\0'))
+		{
+			if(y==0)
+			{
+				c[0][col]=x;
+				col++;
+				x=0;
+				y=0;
+			}
+			if(y!=0)
+			{
+				x=x/y*100;
+				c[0][col]=x;
+				col++;
+				x=0;
+				y=0;
+			}
+		}
+	}
+	if(y!=0)
+		c[0][col]=x/y*10;
+	if(y==0)
+		c[0][col]=x;
+	t=col;
+	x=0;
+	for(line=1;line<=t;line++)
+	{
+		col=0;
+	gets(a);
+	len_a=strlen(a);
+	for(i=0;i<len_a;i++)
+	{
+		if(a[i]>='0'&&a[i]<='9')
+			x=x*10+(a[i]-'0');
+		if(a[i]=='.')
+			y=1;
+		y=y*10;
+		if((a[i]==' '||a[i]=='\0')&&x!=0)
+		{
+			if(y==0)
+			{
+				c[line][col]=x;
+				col++;
+				x=0;
+				y=0;
+			}
+			if(y!=0)
+			{
+				x=x/y*100;
+				c[line][col]=x;
+				col++;
+				x=0;
+				y=0;
+			}
+		}
+	}
+	if(y!=0)
+		c[line][col]=x/y*10;
+	if(y==0)
+		c[line][col]=x;
+	x=0;
+	}
+	for(i=0;i<line;i++)
+	{
+		for(j=0;j<=col;j++)
+			printf("%lf ",c[i][j]);
+		printf("\n");
+	}
+	for(i=0;i<line;i++)
+	{
+		zhu=zhu+c[i][i];
+		fu=fu+c[i][col-i];
+	}
+	printf("%lf,%lf\n",zhu,fu);
+}
+
