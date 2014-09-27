@@ -1,0 +1,10 @@
+#include<stdio.h>
+int main()
+{
+	int a[5]={0};
+	int *pti;
+	pti=a;				//  pti=&a[0];	a就相当于是一个新的指针变量 存着a[0]的地址，它自己也有地址。 
+	printf("%#x\n",&pti);//0x240ff08
+	printf("%#x\n",*&pti);//0x240ff0c
+	//printf("%#x\n",); 
+}
