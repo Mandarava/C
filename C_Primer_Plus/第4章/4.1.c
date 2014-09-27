@@ -1,0 +1,9 @@
+#include<stdio.h>
+int main()
+{	char a[20],b[20]; 
+	printf("«Î ‰»Î√˚◊÷\n");
+	scanf("%s",a);
+	printf("«Î ‰»Î–’ œ\n");
+	scanf("%s",b);
+	printf("%s%s",a,b);
+}
